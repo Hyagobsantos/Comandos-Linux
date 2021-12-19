@@ -102,8 +102,43 @@ permissoẽs linux {
     x = executar
     d = diretorio
 }
-chmod - troca as permissões de arquivos para usuario/grupo ou para qualquer usuario ex adicionando uma permissao chmod + x ex retirando uma permissão chmod -x
+chmod {
+    definição - troca as permissões de arquivos para usuario/grupo ou para qualquer usuario ex adicionando uma permissao chmod + x ex retirando uma permissão chmod -x
+
+    trocando permissões {
+        - para grupo ex - chmod g-xr pedro
+        - para usuario ex - chmod u-xr pedro
+        - para outros ex - chmod o-xr pedro
+    }
+
+} 
+
 ~ - representa o directorio de usuario
+locate - busca arquivos ou programas em todo a extensão de hd
+updatedb - faz uma atualização no banco de dados inteno de sistema para atualizar a busca com locate ex: sudo updatedb
+which - procura qual é o arquivo que eu vou executar se eu digitar nesse comando ex witch firefox
+sudo - comando que vai na frente de um comando no qual eu quero executar com adm
+passwd - comando para mudar a senha de usuario 
+sudo passwd - troca a senha de usuario root 
+su root - para fazer login como root 
+adduser - comando para add um usuriario ex: adduser pedro
+env - monstra as variaveis de ambiente
+PATH - {
+    add um novo diretorio ao PATH d.o Sistema
+    PATH=$PATH: + diretorio ou pasta ex PATH=$PATH:/home/guilherme/workspace
+
+    cofigurar PATH em .bashrc 
+}
+wc -w - conta o numero de paravras que tem dentro de um arquivo
+total de processos - ps -e | wc -l
+apt - gerenciador de pacotes
+apt-cache search - busca progremas para instalar 
+sudo apt-get remove - comando para remover um arquivo
+dpkg {
+    - .deb 
+    instalando programa ex sudo dpkg -i + arquvivo
+    removendo programa ex sudo dpkg -r + nome do pacote
+}
 
 ```
 
@@ -124,16 +159,16 @@ sudo apt install - instala pacotes de programas
 
 ## EXERCICIOS PRATICOS PART I
 
-1. Utilize o comando necessário para exibir, no terminal, a mensagem "Bem vindo ao curso de Linux da Alura".
+**1**. Utilize o comando necessário para exibir, no terminal, a mensagem "Bem vindo ao curso de Linux da Alura".
    Agora escreva a mensagem acima em um arquivo chamado bemvindo.txt, utilizando o comando necessário. Aproveite para verificar se o arquivo foi criado, utilizando o comando ls.
 
-2. Dentro do diretório Desktop do seu usuário, utilize o comando echo para criar o arquivo musicas-favoritas.txt, com a palavra "Faithless".
+**2**. Dentro do diretório Desktop do seu usuário, utilize o comando echo para criar o arquivo musicas-favoritas.txt, com a palavra "Faithless".
 
 Execute o comando necessário para escrever a palavra "REM" no arquivo musicas-favoritas.txt de forma que o conteúdo antigo do arquivo seja mantido.
 
 Utilize o cat para verificar se o conteúdo do arquivo está correto.
 
-3. Crie um diretório chamado workspace dentro do diretório base do usuário. Acesse o diretório workspace.
+**3**. Crie um diretório chamado workspace dentro do diretório base do usuário. Acesse o diretório workspace.
 
 Dentro da pasta workspace, aproveite para criar as pastas: projetos-java e projetos-php.
 
@@ -141,11 +176,11 @@ Crie também os arquivos: arquivo1.txt, arquivo2.txt e arquivo3.txt, todos com o
 
 Por fim, retorne para o diretório em que workspace se encontra.
 
-4. Crie um novo arquivo dentro do diretório workspace: Execute o comando necessário para ler todos os arquivos que contenham apenas um caractere após o nome "arquivo" e antes da extensão ".txt".
+**4**. Crie um novo arquivo dentro do diretório workspace: Execute o comando necessário para ler todos os arquivos que contenham apenas um caractere após o nome "arquivo" e antes da extensão ".txt".
 
-5. Execute o comando necessário para excluir o arquivo arquivo3.txt. E se quisermos excluir o diretório workspace, como podemos fazer? Execute o comando necessário.
+**5**. Execute o comando necessário para excluir o arquivo arquivo3.txt. E se quisermos excluir o diretório workspace, como podemos fazer? Execute o comando necessário.
 
-6. Crie novamente a pasta workspace dentro do diretório base do usuário.
+**6**. Crie novamente a pasta workspace dentro do diretório base do usuário.
 
 Dentro do diretório workspace, crie um arquivo chamado mensagem.txt com a mensagem "bem vindo". Copie o arquivo mensagem.txt para o arquivo bemvindo.txt.
 
@@ -157,29 +192,58 @@ Mova o arquivo bemvindo.txt para o diretório projetos-java, mantendo o mesmo no
 
 Por fim, copie o diretório projetos-java para o diretório projetos-c#.
 
-7. Liste os arquivos que começam com o nome bemvindo, dentro de workspace.
+**7**. Liste os arquivos que começam com o nome bemvindo, dentro de workspace.
 
 Execute apenas o comando ls e depois execute ls \*. Reflita sobre as diferenças entre eles.
 
-8. Vamos agora sair do diretório workspace e trabalhar no seu diretório pai, que é o diretório base do usuário: Utilize o comando necessário para compactar todos os arquivos e diretórios que estão dentro de workspace para o arquivo work.zip.
+**8**. Vamos agora sair do diretório workspace e trabalhar no seu diretório pai, que é o diretório base do usuário: Utilize o comando necessário para compactar todos os arquivos e diretórios que estão dentro de workspace para o arquivo work.zip.
 
 Por fim, remova o diretório workspace e descompacte o arquivo work.zip.
 
-9. Como visto no capítulo, crie um arquivo chamado google.txt dentro do seu diretório workspace. Acesse o artigo da Wikipedia sobre o Google: https://en.wikipedia.org/wiki/Google. Copie uma parte significativa do texto e cole no arquivo google.txt.
+**9**. Como visto no capítulo, crie um arquivo chamado google.txt dentro do seu diretório workspace. Acesse o artigo da Wikipedia sobre o Google: https://en.wikipedia.org/wiki/Google. Copie uma parte significativa do texto e cole no arquivo google.txt.
 
-10. Vamos agora utilizar o vi e abrir o arquivo google.txt:
+**10**. Vamos agora utilizar o vi e abrir o arquivo google.txt:
     Na segunda linha do arquivo, insira o seguinte texto: Da wikipedia, Da wikipedia, a enciclopédia aberta Apague o texto "Da wikipedia, ". Faça isso com um único comando. Por fim, remova a linha que você acabou de inserir, salve as alterações e saia do editor.
 
-11. Vamos agora utilizar o vi e abrir o arquivo google.txt: Utilize o comando necessário para navegar até a linha 30. Pesquise pelo termo "Yahoo!". Navegue nas ocorrências, utilizando também o comando necessário para voltar até uma ocorrência anterior.
+**11**. Vamos agora utilizar o vi e abrir o arquivo google.txt: Utilize o comando necessário para navegar até a linha 30. Pesquise pelo termo "Yahoo!". Navegue nas ocorrências, utilizando também o comando necessário para voltar até uma ocorrência anterior.
 
-12. Vamos agora utilizar o vi e abrir o arquivo google.txt: Copie as três primeiras linhas do arquivo, salte para a linha 40 do arquivo e cole cinco vezes o conteúdo que foi copiado.
+**12**. Vamos agora utilizar o vi e abrir o arquivo google.txt: Copie as três primeiras linhas do arquivo, salte para a linha 40 do arquivo e cole cinco vezes o conteúdo que foi copiado.
 
 ## EXERCICIOS PRATICOS PART II
 
-1. Abra o navegador web Firefox. Agora faça o que é necessário para que no terminal você consiga listar apenas os processos que tiverem ligação com o programa firefox.
+**1**. Abra o navegador web Firefox. Agora faça o que é necessário para que no terminal você consiga listar apenas os processos que tiverem ligação com o programa firefox.
 
-2. Abra algum programa do seu Linux, como o navegador web firefox ou o editor gedit.
+**2**. Abra algum programa do seu Linux, como o navegador web firefox ou o editor gedit.
 
 Execute o comando necessário, passando as informações que ele necessita para encerrar o processo do programa de uma forma que ele consiga decidir se será realmente encerrado.
 
 Abra novamente o programa e agora utilize o comando necessário para encerrá-lo de forma que você tenha certeza que o programa não irá se recuperar e será de fato encerrado.
+
+**3**. crie um diretório chamado scripts, dentro do diretório do seu usuário. O script realizabackup deverá ser criado dentro desse diretório.
+
+Abra o editor de textos gedit de forma que ele seja executado no background. Crie um arquivo chamado realizabackup. O arquivo deverá ter o seguinte conteúdo:
+zip backup.zip -qr ~/workspace/
+echo "Backup realizado com sucesso"COPIAR CÓDIGO
+
+Vamos utilizar o comando zip para criar um arquivo compactado. A opção -q, indica que queremos fazer isso de maneira silenciosa, sem imprimir muitas informações no terminal. A opção -r indica que desejamos fazer a operação de forma recursiva, compactando o diretório workspace e subdiretórios também.
+
+O ~ em ~/workspace/ é um atalho para representar o diretório do usuário. Sempre que quisermos nos referir ao diretório do usuário (/home/nome_do_usuario/), podemos utilizar o ~. Dessa forma independente de qual seja o nosso diretório atual, o comando zip saberá onde o diretório workspace se encontra.
+
+Por fim, vamos imprimir uma mensagem informando que o backup foi concluído com sucesso.
+
+Teste o script e veja se o arquivo .zip é gerado da forma correta.
+
+**4**. Utilize o comando necessário para que seja adicionada a permissão de execução ao script realizabackup, fazendo com que ele possa ser executado sem utilizar o comando sh.
+
+Aproveite para testar a execução do script.
+
+Após executar o script, realize um teste: remova a permissão de escrita do arquivo. Tente abrir o script no editor de texto e perceba que se fizer alguma modificação no arquivo, não conseguirá salvar, pois no momento não possui permissão para escrita.
+
+
+
+
+
+
+
+
+
