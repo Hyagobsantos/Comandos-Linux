@@ -113,7 +113,7 @@ chmod {
 
 } 
 
-~ - representa o directorio de usuario
+~ - representa o diretorio o de usuario
 locate - busca arquivos ou programas em todo a extensão de hd
 updatedb - faz uma atualização no banco de dados inteno de sistema para atualizar a busca com locate ex: sudo updatedb
 which - procura qual é o arquivo que eu vou executar se eu digitar nesse comando ex witch firefox
@@ -129,6 +129,7 @@ PATH - {
 
     cofigurar PATH em .bashrc 
 }
+
 wc -w - conta o numero de paravras que tem dentro de um arquivo
 total de processos - ps -e | wc -l
 apt - gerenciador de pacotes
@@ -138,6 +139,40 @@ dpkg {
     - .deb 
     instalando programa ex sudo dpkg -i + arquvivo
     removendo programa ex sudo dpkg -r + nome do pacote
+}
+
+service {
+    -comando para parar ou startar um programa sem matar ele 
+    ex - sudo service + serviço + stop
+    exemplo pratico - sudo service vsftpd stop
+    exemplo pratico - sudo service vsftpd start  
+    /etc/init.d - programas que serão executados ao iniciar a maquina
+}
+
+instalar-programa-atraves-script {
+    1- extrair o arquivo .tar.gz ex tar -xzf arquivo.tar.gz
+    2 - abrir o diretorio e se tiver um script configure executa-lo
+    3 - dar o comando make para buildar o programa e verificar se está tudo certo nas dependencia 
+    4 - dar o comando sudo make install para instalar o programa
+}
+
+ssh {
+    instalar como cliente o ssh
+        sudo apt-get install ssh-client
+    instalar como server o ssh
+        sudo apt-get install ssh-server
+    instalr como cliente e servidor ssh
+        sudo apt-get install ssh
+
+    conectando remotamente com ssh
+        ssh nomeDoUsuario@ip ex ssh jose@localhost
+    
+    conectando com ssh em modo grafico 
+        ssh -x nomeDoUsario@ip ex ssh -x jose@localhost
+
+    copiando arquivos para maquina remota
+        scp nomeDoArquivo nomeDoUsario@ip:Diretorio 
+        ex scp -r  work.zip jose@localhost:~/
 }
 
 ```
