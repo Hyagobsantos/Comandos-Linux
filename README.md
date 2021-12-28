@@ -174,6 +174,8 @@ ssh {
         scp nomeDoArquivo nomeDoUsario@ip:Diretorio 
         ex scp -r  work.zip jose@localhost:~/
 }
+# usermod -aG sudo hpoyatos - adcionando sudo ao usuario hypoyatos no sistema
+
 
 ```
 
